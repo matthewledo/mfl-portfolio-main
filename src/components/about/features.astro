@@ -1,0 +1,29 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+import { FaShoppingCart, FaCalendarCheck, FaChartLine } from "react-icons/fa"; 
+---
+
+<section class="max-w-6xl mx-auto px-6 py-20">
+  <div class="flex items-center gap-4 mb-12">
+    <h2 class="text-3xl font-bold text-slate-900 whitespace-nowrap">Core Specializations</h2>
+    <div class="h-px bg-slate-200 w-full"></div>
+  </div>
+
+  <div class="grid gap-8 md:grid-cols-3">
+    <ServiceCard
+      icon={FaShoppingCart}
+      title="Ecommerce Development"
+      description="Custom Shopify development and theme customization, building high-converting PDPs and collection pages[cite: 15, 16, 35]."
+    />
+    <ServiceCard
+      icon={FaCalendarCheck}
+      title="Promotion Execution"
+      description="End-to-end coding and launch of time-sensitive promotional campaigns and high-traffic flash sales[cite: 13, 36]."
+    />
+    <ServiceCard
+      icon={FaChartLine}
+      title="SEO & Optimization"
+      description="Technical SEO and performance tuning contributing to over 6M annual organic sessions[cite: 19, 43]."
+    />
+  </div>
+</section>

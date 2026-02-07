@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0f172a; /* Slate 900 */
+  --color-success: #059669; /* Emerald 600 (SEO Growth) */
+  --color-border: #e2e8f0;  /* Slate 200 */
+}
+
+/* Remove all global purple overrides */
+@layer base {
+  body {
+    @apply bg-white text-slate-900;
+  }
+}

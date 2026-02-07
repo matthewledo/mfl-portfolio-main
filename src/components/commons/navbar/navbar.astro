@@ -1,0 +1,93 @@
+---
+import { FiMenu, FiX } from "react-icons/fi";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
+
+const links = [
+  { name: "Home", href: "/" },
+  { name: "Case Studies", href: "/proyectos" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+];
+---
+
+<nav class="relative">
+  <input id="menu-toggle" type="checkbox" class="peer hidden md:hidden" />
+
+  <nav class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center group">
+        <span class="text-slate-900 text-2xl font-black tracking-tighter">
+          LRC<span class="text-emerald-500">.</span>
+        </span>
+      </a>
+
+      <ul id="navbar-links" class="hidden md:flex items-center space-x-10">
+        {links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="nav-link text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors duration-200"
+            >
+              {link.name}
+            </a>
+          </li>
+        ))}
+
+        <li class="flex items-center gap-5 border-l border-slate-200 pl-6 ml-2">
+          <a href="https://linkedin.com/..." target="_blank" class="text-slate-400 hover:text-slate-900 transition-colors">
+            <FaLinkedinIn className="h-5 w-5" />
+          </a>
+          <a href="https://github.com/..." target="_blank" class="text-slate-400 hover:text-slate-900 transition-colors">
+            <FaGithub className="h-5 w-5" />
+          </a>
+        </li>
+      </ul>
+
+      <div class="flex md:hidden items-center">
+        <label for="menu-toggle" class="cursor-pointer text-slate-900">
+          <FiMenu className="h-7 w-7 peer-checked:hidden" />
+        </label>
+      </div>
+    </div>
+  </nav>
+
+  <div class="fixed top-0 right-0 h-full w-72 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-[60] md:hidden">
+    <div class="p-6">
+      <label for="menu-toggle" class="flex justify-end cursor-pointer mb-8">
+        <FiX className="h-8 w-8 text-slate-900" />
+      </label>
+      <ul id="navbar-links-mobile" class="flex flex-col space-y-6">
+        {links.map((link) => (
+          <li>
+            <a href={link.href} class="nav-link-mobile text-xl font-bold text-slate-900">
+              {link.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  /* Updated script for active links using slate-900 and emerald indicators */
+  (function () {
+    function markActiveLinks() {
+      const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+      const allLinks = document.querySelectorAll(".nav-link, .nav-link-mobile");
+
+      allLinks.forEach((link) => {
+        const href = link.getAttribute("href")?.replace(/\/$/, "") || "/";
+        if (href === currentPath) {
+          link.classList.add("text-emerald-600", "font-bold");
+          link.classList.remove("text-slate-600");
+        } else {
+          link.classList.remove("text-emerald-600");
+          link.classList.add("text-slate-600");
+        }
+      });
+    }
+    document.addEventListener("astro:page-load", markActiveLinks);
+    markActiveLinks();
+  })();
+</script>

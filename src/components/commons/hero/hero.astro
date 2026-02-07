@@ -1,0 +1,42 @@
+---
+export interface Props {
+  titulo: string;
+}
+
+const { titulo } = Astro.props;
+---
+
+<section
+  class="relative bg-white text-slate-900 py-32 mt-[72px] overflow-hidden 
+  border-b border-slate-100
+  bg-[linear-gradient(#f1f5f9_1px,transparent_1px),linear-gradient(90deg,#f1f5f9_1px,transparent_1px)] 
+  [background-size:40px_40px]"
+>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white/50 pointer-events-none"></div>
+
+  <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+    <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.2em] uppercase text-emerald-700 bg-emerald-50 rounded-full border border-emerald-100">
+      Ecommerce Growth & Development
+    </span>
+
+    <h1
+      class="text-5xl md:text-7xl font-black mb-6 tracking-tight text-slate-900 leading-[1.1]"
+    >
+      {titulo}
+    </h1>
+
+    <p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 leading-relaxed mb-10">
+      Bridging the gap between <span class="text-slate-900 font-semibold underline decoration-emerald-400 decoration-2 underline-offset-4">technical SEO</span> 
+      and <span class="text-slate-900 font-semibold underline decoration-emerald-400 decoration-2 underline-offset-4">scalable ecommerce infrastructure</span>.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#case-studies" class="px-8 py-4 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-all shadow-lg shadow-slate-200">
+          View Case Studies
+        </a>
+        <a href="#contact" class="px-8 py-4 bg-white text-slate-900 font-bold border-2 border-slate-200 rounded-lg hover:border-slate-900 transition-all">
+          Discuss a Project
+        </a>
+    </div>
+  </div>
+</section>

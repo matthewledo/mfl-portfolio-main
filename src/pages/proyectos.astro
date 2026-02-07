@@ -1,0 +1,148 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/commons/hero/hero.astro";
+import ProjectCard from "../components/project/proyectCard.astro";
+import Banner from "../components/commons/banners/banner.astro";
+import { proyectos } from "../data/projectData.js";
+---
+
+<Layout title="Projects & Case Studies | Matthew Ledo" description="Technical SEO and Ecommerce projects portfolio.">
+  <Hero titulo="Technical Case Studies" />
+
+  <main class="max-w-7xl mx-auto py-12 px-6">
+    <div class="mb-12 flex justify-center">
+      <div class="inline-flex p-1 bg-slate-100 rounded-xl border border-slate-200" id="filter-container">
+        {["All", "Ecommerce", "SEO", "Frontend"].map((filter) => (
+          <button 
+            class="filter-btn px-6 py-2 text-sm font-bold rounded-lg transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-900"
+            data-filter={filter.toLowerCase()}
+          >
+            {filter}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div
+      id="projects-container"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[400px]"
+    >
+      {
+        proyectos.map((proyecto, index) => (
+          <div class="project-wrapper" data-categoria={proyecto.categoria}>
+            <ProjectCard 
+              index={index} 
+              titulo={proyecto.titulo}
+              descripcion={proyecto.descripcion}
+              imagen={proyecto.imagen}
+              tecnologias={proyecto.tecnologias}
+              demo={proyecto.demo}
+              codigo={proyecto.codigo}
+              categoria={proyecto.categoria}
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="flex justify-center mt-20">
+      <button
+        id="load-more"
+        class="hidden items-center gap-2 px-8 py-4 bg-white border-2 border-slate-200 text-slate-900 font-bold rounded-xl hover:border-slate-900 transition-all cursor-pointer"
+      >
+        Load More Work
+        <span>↓</span>
+      </button>
+    </div>
+  </main>
+
+  <Banner />
+</Layout>
+
+<script is:inline>
+  (function () {
+    const INITIAL_VISIBLE = 9;
+    let itemsToShow = INITIAL_VISIBLE;
+
+    function applyFilter(filter) {
+      const normalized = filter.toLowerCase();
+      const wrappers = document.querySelectorAll('.project-wrapper');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      // 1. Style Buttons
+      buttons.forEach(btn => {
+        if (btn.dataset.filter === normalized) {
+          btn.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+          btn.classList.remove('text-slate-500');
+        } else {
+          btn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+          btn.classList.add('text-slate-500');
+        }
+      });
+
+      // 2. Filter Logic
+      const filtered = Array.from(wrappers).filter(el => {
+        const cat = el.dataset.categoria?.toLowerCase() || "";
+        return normalized === 'all' || cat === normalized;
+      });
+
+      // 3. Update Visibility
+      wrappers.forEach(el => {
+        el.style.display = 'none';
+        el.classList.remove('project-visible');
+      });
+
+      filtered.slice(0, itemsToShow).forEach(el => {
+        el.style.display = 'block';
+        // Force a reflow for the transition
+        setTimeout(() => el.classList.add('project-visible'), 10);
+      });
+
+      // 4. Update Load More Button
+      const loadMoreBtn = document.getElementById('load-more');
+      if (loadMoreBtn) {
+        loadMoreBtn.style.display = filtered.length > itemsToShow ? 'flex' : 'none';
+      }
+    }
+
+    function init() {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => {
+        btn.onclick = () => {
+          itemsToShow = INITIAL_VISIBLE;
+          applyFilter(btn.dataset.filter);
+        };
+      });
+
+      const loadBtn = document.getElementById('load-more');
+      if (loadBtn) {
+        loadBtn.onclick = () => {
+          itemsToShow += INITIAL_VISIBLE;
+          const activeBtn = document.querySelector('.filter-btn.bg-white');
+          const activeFilter = activeBtn ? activeBtn.dataset.filter : 'all';
+          applyFilter(activeFilter);
+        };
+      }
+
+      applyFilter('all');
+    }
+
+    // Runs on initial load
+    init();
+    // Re-init for Astro View Transitions
+    document.addEventListener('astro:after-swap', init);
+  })();
+</script>
+
+<style is:global>
+  .project-wrapper {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .project-wrapper.project-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

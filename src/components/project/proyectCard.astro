@@ -1,0 +1,76 @@
+---
+import { HiArrowRight } from "react-icons/hi";
+
+export interface Props {
+  titulo: string;
+  descripcion: string;
+  imagen: string;
+  tecnologias: string[];
+  demo: string;
+  codigo: string;
+  categoria?: string;
+  index: number; 
+}
+
+const { titulo, descripcion, imagen, tecnologias, demo, codigo, categoria, index } = Astro.props;
+---
+
+<div
+  data-index={index}
+  data-categoria={categoria ?? ""}
+  class="group flex flex-col h-full overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+>
+  <div class="relative overflow-hidden aspect-video">
+    <img
+      src={imagen}
+      alt={`Imagen del proyecto ${titulo}`}
+      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+    />
+    <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-300"></div>
+  </div>
+
+  <div class="flex grow flex-col p-6">
+    <span class="text-[10px] uppercase tracking-widest font-bold text-emerald-600 mb-2">
+      {categoria || "Technical Project"}
+    </span>
+
+    <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
+      {titulo}
+    </h3>
+
+    <p class="text-sm text-slate-600 leading-relaxed mb-6 line-clamp-3">
+      {descripcion}
+    </p>
+
+    <div class="mt-auto">
+      <div class="flex flex-wrap gap-2 mb-6">
+        {tecnologias.map((tech) => (
+          <span class="rounded-lg bg-slate-50 border border-slate-100 text-slate-500 px-2.5 py-1 text-[11px] font-medium">
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      <div class="flex items-center gap-6 pt-4 border-t border-slate-100">
+        <a
+          class="flex items-center gap-1 text-sm font-bold text-slate-900 hover:text-emerald-600 transition-colors"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={demo}
+        >
+          Live Demo
+          <HiArrowRight size={16} />
+        </a>
+
+        <a
+          class="flex items-center gap-1 text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors"
+          href={codigo}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Source Code
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

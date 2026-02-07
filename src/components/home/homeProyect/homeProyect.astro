@@ -1,0 +1,31 @@
+---
+import HomeProjectCard from "./homeProyectCard.astro"; // Note: Check if filename is 'Proyect' or 'Project'
+import { proyectos } from "../../../data/projetsAboutData.js";
+---
+
+<section class="py-24 relative z-10 bg-slate-50/50 border-y border-slate-100">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+        Featured Case Studies
+      </h2>
+      <p class="mt-4 text-slate-600 text-lg max-w-2xl mx-auto">
+        Deep dives into technical SEO audits, frontend performance optimization, and scalable ecommerce solutions.
+      </p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
+      {proyectos.slice(0, 4).map((p) => <HomeProjectCard {...p} />)}
+    </div>
+
+    <div class="mt-16 flex justify-center">
+      <a
+        href="/proyectos"
+        class="group inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 border-2 border-slate-200 font-bold rounded-xl transition-all hover:border-slate-900 hover:shadow-lg"
+      >
+        Explore Full Portfolio
+        <span class="transition-transform group-hover:translate-x-1">→</span>
+      </a>
+    </div>
+  </div>
+</section>

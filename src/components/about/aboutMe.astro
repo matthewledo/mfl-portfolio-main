@@ -1,0 +1,52 @@
+---
+import MiFoto from "../../assets/img/MiFoto.png";
+---
+
+<div class="mx-auto mt-24 flex max-w-6xl flex-col items-center gap-16 px-6 lg:flex-row">
+  <div class="relative group">
+    <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-slate-400 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+    
+    <div class="relative h-72 w-72 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm md:h-[450px] md:w-[400px]">
+      <img 
+        src={MiFoto.src} 
+        alt="Matthew Ledo" 
+        class="h-full w-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500" 
+      />
+    </div>
+  </div>
+
+  <div class="flex-1 text-center lg:text-left">
+    <header class="mb-6">
+      <span class="text-emerald-600 font-bold tracking-[0.2em] text-sm uppercase">Digital Experience Developer</span>
+      <h2 class="mt-2 text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+        Matthew <span class="text-slate-400">Ledo</span>
+      </h2>
+    </header>
+
+    <div class="space-y-6 text-slate-600 text-lg leading-relaxed">
+      <p>
+        I specialize in the front-end execution of high-traffic ecommerce platforms. For nearly 5 years, I have held ownership-level responsibility for a site generating <span class="text-slate-900 font-bold border-b-2 border-emerald-200">30M+ annual sessions</span> and over <span class="text-slate-900 font-bold border-b-2 border-emerald-200">$60M in annual revenue</span>.
+      </p>
+
+      <p>
+        My expertise bridges the gap between technical development and marketing strategy. I am the sole front-end executor for enterprise-scale campaigns like <span class="text-slate-900 font-medium">Black Friday and Boxing Day</span>, ensuring seamless performance for millions of concurrent users through optimized HTML, CSS, and JavaScript.
+      </p>
+
+      <p>
+        From <span class="text-slate-900 font-medium">Shopify Administration</span> to Technical SEO and custom <span class="text-slate-900 font-medium">PDP/Cart logic</span>, I focus on building production-ready digital experiences that drive measurable conversion rate optimization (CRO).
+      </p>
+    </div>
+
+    <div class="mt-10 flex flex-wrap justify-center lg:justify-start gap-4">
+      <div class="px-4 py-2 bg-slate-50 border border-slate-100 rounded-full text-xs font-bold text-slate-500 uppercase tracking-widest">
+        Shopify Expert
+      </div>
+      <div class="px-4 py-2 bg-slate-50 border border-slate-100 rounded-full text-xs font-bold text-slate-500 uppercase tracking-widest">
+        SEO Specialist
+      </div>
+      <div class="px-4 py-2 bg-slate-50 border border-slate-100 rounded-full text-xs font-bold text-slate-500 uppercase tracking-widest">
+        BComm Marketing
+      </div>
+    </div>
+  </div>
+</div>
