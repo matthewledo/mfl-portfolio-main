@@ -6,7 +6,7 @@ const SocialIcons = () => {
 
   return (
     <div className="my-5 flex items-center justify-center">
-      <a href="https://www.linkedin.com/in/..." target="_blank" rel="noopener noreferrer" className={linkClass} aria-label="Linkedin">
+      <a href="https://www.linkedin.com/in/matthew-ledo/" target="_blank" rel="noopener noreferrer" className={linkClass} aria-label="Linkedin">
         <FaLinkedinIn className={iconClass} />
       </a>
       <a href="https://github.com/..." target="_blank" rel="noopener noreferrer" className={linkClass} aria-label="Github">

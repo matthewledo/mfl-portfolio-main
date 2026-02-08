@@ -9,7 +9,7 @@
     const buttons = Array.from(document.querySelectorAll(".filter-btn"));
     if (!container || !buttons.length) return;
 
-    const cards = Array.from(container.querySelectorAll("[data-categoria]"));
+    const cards = Array.from(container.querySelectorAll("[data-category]"));
     if (!cards.length) return;
 
     function showCard(card) {
@@ -31,10 +31,10 @@
     function applyFilter(filter) {
       const normalized = filter.toLowerCase();
       cards.forEach((card) => {
-        const categoria = (
-          card.getAttribute("data-categoria") ?? ""
+        const category = (
+          card.getAttribute("data-category") ?? ""
         ).toLowerCase();
-        const match = normalized === "all" || categoria === normalized;
+        const match = normalized === "all" || category === normalized;
         match ? showCard(card) : hideCard(card);
       });
     }
