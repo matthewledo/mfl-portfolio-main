@@ -1,13 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/commons/hero/hero.astro";
-import ProjectCard from "../components/project/proyectCard.astro";
+import ProjectCard from "../components/project/projectCard.astro";
 import Banner from "../components/commons/banners/banner.astro";
-import { proyectos } from "../data/projectData.js";
+import { projects } from "../data/projectData.js";
 ---
 
 <Layout title="Projects & Case Studies | Matthew Ledo" description="Technical SEO and Ecommerce projects portfolio.">
-  <Hero titulo="Technical Case Studies" />
+  <Hero title="Technical Case Studies" />
 
   <main class="max-w-7xl mx-auto py-12 px-6">
     <div class="mb-12 flex justify-center">
@@ -28,17 +28,17 @@ import { proyectos } from "../data/projectData.js";
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[400px]"
     >
       {
-        proyectos.map((proyecto, index) => (
-          <div class="project-wrapper" data-categoria={proyecto.categoria}>
+        projects.map((project, index) => (
+          <div class="project-wrapper" data-category={project.category}>
             <ProjectCard 
               index={index} 
-              titulo={proyecto.titulo}
-              descripcion={proyecto.descripcion}
-              imagen={proyecto.imagen}
-              tecnologias={proyecto.tecnologias}
-              demo={proyecto.demo}
-              codigo={proyecto.codigo}
-              categoria={proyecto.categoria}
+              title={project.title}
+              description={project.description}
+              image={project.image}
+              technologies={project.technologies}
+              demo={project.demo}
+              code={project.code}
+              category={project.category}
             />
           </div>
         ))
@@ -82,7 +82,7 @@ import { proyectos } from "../data/projectData.js";
 
       // 2. Filter Logic
       const filtered = Array.from(wrappers).filter(el => {
-        const cat = el.dataset.categoria?.toLowerCase() || "";
+        const cat = el.dataset.category?.toLowerCase() || "";
         return normalized === 'all' || cat === normalized;
       });
 

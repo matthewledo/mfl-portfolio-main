@@ -1,6 +1,6 @@
 ---
-import HomeProjectCard from "./homeProyectCard.astro"; // Note: Check if filename is 'Proyect' or 'Project'
-import { proyectos } from "../../../data/projetsAboutData.js";
+import HomeProjectCard from "./homeProjectCard.astro"; // Note: Check if filename is 'Proyect' or 'Project'
+import { projects } from "../../../data/projetsAboutData.js";
 ---
 
 <section class="py-24 relative z-10 bg-slate-50/50 border-y border-slate-100">
@@ -15,12 +15,12 @@ import { proyectos } from "../../../data/projetsAboutData.js";
     </div>
 
     <div class="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
-      {proyectos.slice(0, 4).map((p) => <HomeProjectCard {...p} />)}
+      {projects.slice(0, 4).map((p) => <HomeProjectCard {...p} />)}
     </div>
 
     <div class="mt-16 flex justify-center">
       <a
-        href="/proyectos"
+        href="/projects"
         class="group inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 border-2 border-slate-200 font-bold rounded-xl transition-all hover:border-slate-900 hover:shadow-lg"
       >
         Explore Full Portfolio
