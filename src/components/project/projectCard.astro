@@ -10,9 +10,10 @@ export interface Props {
   code: string;
   category?: string;
   index: number; 
+  moreDetails?: string;
 }
 
-const { title, description, image, technologies, demo, code, category, index } = Astro.props;
+const { title, description, image, technologies, demo, code, category, index, moreDetails } = Astro.props;
 ---
 
 <div
@@ -70,6 +71,16 @@ const { title, description, image, technologies, demo, code, category, index } =
         >
           Source Code
         </a>
+
+          {moreDetails && (
+    <a
+      class="flex items-center gap-1 text-sm font-bold text-emerald-600 hover:text-emerald-700 transition-colors"
+      href={moreDetails}
+    >
+      Case Study
+      <HiArrowRight size={16} />
+    </a>
+  )}
       </div>
     </div>
   </div>

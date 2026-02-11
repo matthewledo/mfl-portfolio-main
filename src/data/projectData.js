@@ -12,14 +12,15 @@ import CvBuilder from "../assets/img-projects/CvBuilder.png";
 
 export const projects = [
   {
-    title: "Vintage Tone",
+    title: "Homepage Redesign",
     description:
-      "Comercio electrónico completo con carrito de compras, autenticación de usuarios jwt, panel de Admin, Blog, y mas. Stack: Vue.Js - Node.js - Express - MongoDB - Tailwind - Cloudinary.",
+      "New design for homepage.",
     image: VintageTone.src,
-    technologies: ["Vue.js", "Tailwind", "Express", "MongoDB"],
+    technologies: ["HTML", "CSS", "JavaScript"],
     demo: "https://vintage-tone-front-vue.vercel.app",
     code: "https://github.com/Lautaro-R-collins/VintageTone-Front-Vue.git",
     category: "fullstack",
+    moreDetails: "/pages/case-studies/homepage-redesign",
   },
   {
     title: "React Tiendita",

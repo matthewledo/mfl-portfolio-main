@@ -1,0 +1,85 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/commons/hero/hero.astro";
+---
+
+<Layout title="Leon’s Ecommerce Redesign">
+  <!-- HERO -->
+  <Hero
+    title="Leon’s Ecommerce Redesign"
+    subtitle="Improving performance, usability, and maintainability on a high-traffic retail site"
+  />
+
+  <!-- PROJECT SNAPSHOT -->
+  <section class="max-w-5xl mx-auto py-12 grid gap-6 md:grid-cols-3">
+    <div class="md:col-span-1 font-semibold">
+      <p><strong>Role:</strong> Front-End Developer</p>
+      <p><strong>Timeline:</strong> 3 months</p>
+      <p><strong>Stack:</strong> HTML, CSS, JavaScript, Astro</p>
+      <p><strong>Platform:</strong> Ecommerce</p>
+    </div>
+
+    <div class="md:col-span-2">
+      <p class="text-lg">
+        This project focused on improving page performance, usability, and code maintainability
+        while working within the constraints of an existing production ecommerce platform.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="max-w-5xl mx-auto py-12">
+    <h2>The Problem</h2>
+    <p>
+      Product pages suffered from slow load times and inconsistent layout behavior,
+      contributing to poor user experience and increased bounce rates.
+    </p>
+  </section>
+
+  <!-- CHALLENGES -->
+  <section class="max-w-5xl mx-auto py-12">
+    <h2>Constraints & Challenges</h2>
+    <ul>
+      <li>Legacy front-end patterns</li>
+      <li>SEO-sensitive production environment</li>
+      <li>Performance improvements without visual regressions</li>
+    </ul>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="max-w-5xl mx-auto py-12">
+    <h2>The Solution</h2>
+    <p>
+      I refactored key UI components, improved layout stability, and optimized
+      asset loading to enhance both performance and maintainability.
+    </p>
+  </section>
+
+  <!-- TECHNICAL HIGHLIGHTS -->
+  <section class="max-w-5xl mx-auto py-12">
+    <h2>Technical Highlights</h2>
+    <ul>
+      <li>Componentized reusable UI patterns</li>
+      <li>Improved Core Web Vitals (LCP, CLS)</li>
+      <li>Implemented semantic HTML and accessibility improvements</li>
+    </ul>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="max-w-5xl mx-auto py-12">
+    <h2>Results</h2>
+    <p>
+      The refactor led to more consistent page performance, easier feature iteration,
+      and a cleaner front-end architecture.
+    </p>
+  </section>
+
+  <!-- WHAT’S NEXT -->
+  <section class="max-w-5xl mx-auto py-12">
+    <h2>What I’d Do Next</h2>
+    <p>
+      Introduce automated performance monitoring and expand the component system
+      for faster future development.
+    </p>
+  </section>
+</Layout>
