@@ -1,45 +1,41 @@
-# 🌌 Personal Portfolio – Lautaro 
+# 🌌 Personal Portfolio – Matthew 
 
 ---
 
-## 🚀 Características principales
+## 🚀 Main Features
 
-- ⚡️ Construido con **Astro** y **React** 
-- 🎨 **Diseño responsive**
-- 🧠 **Filtrado dinámico de proyectos**
-- 💬 Secciones personalizables: *Sobre mí*, *Proyectos*, *Experiencia*, *Contacto*  
+- ⚡️ Developed with **Astro** & **React** 
+- 🎨 **Responsive design**
+- 🧠 **Dynamic Project Filters**
+- 💬 Personal Sections: *About Me*, *Projects*, *Experience*, *Contact*  
 
 ---
 
-## 🧩 Tecnologías utilizadas
+## 🧩 Tech Stack
 
 - [Astro](https://astro.build/)  
 - [TailwindCSS](https://tailwindcss.com/)  
 - [TypeScript / JavaScript]  
-- [React (en componentes selectivos)]  
+- [React (select components)]  
 - [Vite](https://vitejs.dev/)  
 
 ---
 
-## 📂 Estructura del proyecto
-
-
-
-## 🚀 Project Structure
+## 📂 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
 
 ```text
 /
 ├── public/
-│ └── images/ # Recursos estáticos
+│ └── images
 ├── src/
-│ ├── components/ # Componentes reutilizables
-│ ├── layouts/ # Layout base
-│ ├── pages/ # Páginas principales (index, proyectos, etc.)
-│ ├── scripts/ # JS para interactividad (filtro, animaciones)
-│ ├── styles/ # CSS global o módulos
-│ └── data/ # Datos (proyectos, experiencia)
+│ ├── components/ # reusable components
+│ ├── layouts/ # layout base
+│ ├── pages/ # main pages (index, projects, etc.)
+│ ├── scripts/ # JS for interactivity (filters, animations)
+│ ├── styles/ # global and modular CSS
+│ └── data/ # data (projects, experiences)
 └── astro.config.mjs
 ```
 
